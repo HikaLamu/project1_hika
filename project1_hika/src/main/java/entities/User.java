@@ -10,6 +10,8 @@ public class User {
 
     private String password;
 
+    //private boolean isUserNameAvailable;
+
     private boolean isAdmin;
 
 

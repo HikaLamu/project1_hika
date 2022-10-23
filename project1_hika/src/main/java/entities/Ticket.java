@@ -76,4 +76,8 @@ public class Ticket {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public int getTicketById() {
+        return id;
+    }
 }

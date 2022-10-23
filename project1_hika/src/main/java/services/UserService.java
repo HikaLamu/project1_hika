@@ -10,7 +10,9 @@ public interface UserService {
 
     User createUserName(User userName);
 
-    User createPassword (User password);
+    User createPassword(User password);
+
+    User getUserByUserName(User userName);
 
     User getUserById(int id);
 

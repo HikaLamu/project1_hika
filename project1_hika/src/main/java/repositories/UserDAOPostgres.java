@@ -19,6 +19,11 @@ public class UserDAOPostgres implements UserDAO {
     }
 
     @Override
+    public User getUserName(User userName) {
+        return null;
+    }
+
+    @Override
     public User getUserById(int id) {
         return null;
     }
@@ -31,5 +36,10 @@ public class UserDAOPostgres implements UserDAO {
     @Override
     public boolean deleteUserById(int id) {
         return false;
+    }
+
+    @Override
+    public User getUserByUserName(User userName) {
+        return null;
     }
 }

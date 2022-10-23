@@ -1,5 +1,6 @@
 package entities;
 
+import javax.imageio.stream.FileCacheImageOutputStream;
 import java.util.Objects;
 
 public class User {
@@ -34,7 +35,6 @@ public class User {
                 ", isAdmin=" + isAdmin +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

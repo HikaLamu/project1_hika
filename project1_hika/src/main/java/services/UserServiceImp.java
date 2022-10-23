@@ -22,33 +22,46 @@ public class UserServiceImp implements UserService{
         if(user.getPassword().length() == 0){
             throw new InvalidPasswordException("Password cannot be empty");
         }
-        User savedUser = this.userDAO.createUser(user);
-        return savedUser;
+        return this.userDAO.createUser(user);
     }
 
     @Override
     public User createUserName(User userName) {
-        return null;
+        if(userName.getUserName().length() == 0){
+            throw new InvalidUserNameException("User name cannot be empty");}
+        User savedUserName = this.userDAO.createUserName(userName);
+        return savedUserName;
     }
 
     @Override
     public User createPassword(User password) {
-        return null;
+        if(password.getPassword().length() == 0){
+            throw new InvalidPasswordException("Password cannot be empty");}
+        User savedPassword = this.userDAO.createPassword(password);
+        return savedPassword;
     }
 
+    @Override
+    public User getUserByUserName(User userName) {
+        return this.userDAO.getUserByUserName(userName);
+    }
 
     @Override
     public User getUserById(int id) {
-        return null;
+        return this.userDAO.getUserById(id);
     }
 
     @Override
     public User updateUserName(User user) {
-        return null;
+
+        if(user.getUserName().length() == 0){
+            throw new InvalidUserNameException("Username cannot be empty");
+        }
+        return this.userDAO.updateUserName(user);
     }
 
     @Override
     public boolean deleteUserById(int id) {
-        return false;
+        return this.userDAO.deleteUserById(id);
     }
 }

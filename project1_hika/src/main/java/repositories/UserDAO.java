@@ -16,5 +16,4 @@ public interface UserDAO {
 
     boolean deleteUserById(int id);
 
-    User getUserByUserName(User userName);
 }

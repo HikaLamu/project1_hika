@@ -12,8 +12,6 @@ public interface UserService {
 
     User createPassword(User password);
 
-    User getUserByUserName(User userName);
-
     User getUserById(int id);
 
     User updateUserName(User user);

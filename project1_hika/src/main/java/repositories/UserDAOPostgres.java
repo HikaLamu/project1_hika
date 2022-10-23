@@ -38,8 +38,5 @@ public class UserDAOPostgres implements UserDAO {
         return false;
     }
 
-    @Override
-    public User getUserByUserName(User userName) {
-        return null;
-    }
+
 }

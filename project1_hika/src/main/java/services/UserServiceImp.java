@@ -29,21 +29,15 @@ public class UserServiceImp implements UserService{
     public User createUserName(User userName) {
         if(userName.getUserName().length() == 0){
             throw new InvalidUserNameException("User name cannot be empty");}
-        User savedUserName = this.userDAO.createUserName(userName);
-        return savedUserName;
+        return this.userDAO.createUserName(userName);
+
     }
 
     @Override
     public User createPassword(User password) {
         if(password.getPassword().length() == 0){
             throw new InvalidPasswordException("Password cannot be empty");}
-        User savedPassword = this.userDAO.createPassword(password);
-        return savedPassword;
-    }
-
-    @Override
-    public User getUserByUserName(User userName) {
-        return this.userDAO.getUserByUserName(userName);
+        return this.userDAO.createPassword(password);
     }
 
     @Override

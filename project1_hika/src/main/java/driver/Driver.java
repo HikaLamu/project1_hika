@@ -1,5 +1,7 @@
 package driver;
 
+import controllers.UserController;
+import handlers.*;
 import io.javalin.Javalin;
 import repositories.TicketDAOPostgres;
 import repositories.UserDAOPostgres;
@@ -17,6 +19,29 @@ public class Driver {
     public static void main(String[] args) {
 
         Javalin app = Javalin.create();
+
+        HelloHandler helloHandler = new HelloHandler();
+          GetUserByIdHandler getUserByIdHandler = new GetUserByIdHandler();
+          CreateUserHandler createUserHandler = new CreateUserHandler();
+          CreateUserNameHandler createUserNameHandler = new CreateUserNameHandler();
+          CreatePasswordHandler createPasswordHandler = new CreatePasswordHandler();
+          UpdateUserNameHandler updateUserNameHandler = new UpdateUserNameHandler();
+          DeleteUserHandler deleteUserHandler = new DeleteUserHandler();
+          UserController userController = new UserController();
+
+
+        app.get("/hello", helloHandler);
+
+        app.get("/users/{id}", userController.getUserByIdHandler);
+
+        app.post("/users", userController.createUserHandler);
+
+        app.put("/books", userController.updateUserNameHandler);
+
+        app.delete("/books/{id}", userController.deleteUserHandler);
+
+
+        app.start();
 
     }
 

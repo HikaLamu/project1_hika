@@ -36,9 +36,9 @@ public class Driver {
 
         app.post("/users", userController.createUserHandler);
 
-        app.put("/books", userController.updateUserNameHandler);
+        app.put("/users", userController.updateUserNameHandler);
 
-        app.delete("/books/{id}", userController.deleteUserHandler);
+        app.delete("/users/{id}", userController.deleteUserHandler);
 
 
         app.start();

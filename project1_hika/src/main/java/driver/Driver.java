@@ -1,6 +1,7 @@
 package driver;
 
-import controllers.UserController;
+import services.controllers.TicketController;
+import services.controllers.UserController;
 import handlers.*;
 import io.javalin.Javalin;
 import repositories.TicketDAOPostgres;
@@ -28,6 +29,12 @@ public class Driver {
           UpdateUserNameHandler updateUserNameHandler = new UpdateUserNameHandler();
           DeleteUserHandler deleteUserHandler = new DeleteUserHandler();
           UserController userController = new UserController();
+
+          CreateNewTicketHandler createNewTicketHandler = new CreateNewTicketHandler();
+          GetTicketAmountHandler getTicketAmountHandler = new GetTicketAmountHandler();
+          GetTicketByIdHandler getTicketByIdHandler = new GetTicketByIdHandler();
+          GetTicketDescriptionHandler getTicketDescriptionHandler = new GetTicketDescriptionHandler();
+        TicketController ticketController = new TicketController();
 
 
         app.get("/hello", helloHandler);

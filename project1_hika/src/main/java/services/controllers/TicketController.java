@@ -1,4 +1,4 @@
-package controllers;
+package services.controllers;
 
 import com.google.gson.Gson;
 import driver.Driver;

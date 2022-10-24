@@ -21,29 +21,21 @@ public class Driver {
 
         Javalin app = Javalin.create();
 
-        HelloHandler helloHandler = new HelloHandler();
           GetUserByIdHandler getUserByIdHandler = new GetUserByIdHandler();
           CreateUserHandler createUserHandler = new CreateUserHandler();
-          CreateUserNameHandler createUserNameHandler = new CreateUserNameHandler();
-          CreatePasswordHandler createPasswordHandler = new CreatePasswordHandler();
-          UpdateUserNameHandler updateUserNameHandler = new UpdateUserNameHandler();
           DeleteUserHandler deleteUserHandler = new DeleteUserHandler();
           UserController userController = new UserController();
 
           CreateNewTicketHandler createNewTicketHandler = new CreateNewTicketHandler();
-          GetTicketAmountHandler getTicketAmountHandler = new GetTicketAmountHandler();
           GetTicketByIdHandler getTicketByIdHandler = new GetTicketByIdHandler();
-          GetTicketDescriptionHandler getTicketDescriptionHandler = new GetTicketDescriptionHandler();
-        TicketController ticketController = new TicketController();
+          TicketController ticketController = new TicketController();
 
 
-        app.get("/hello", helloHandler);
+
 
         app.get("/users/{id}", getUserByIdHandler);
 
         app.post("/users", createUserHandler);
-
-        app.put("/users", updateUserNameHandler);
 
         app.delete("/users/{id}", deleteUserHandler);
 

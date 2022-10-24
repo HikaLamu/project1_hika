@@ -2,9 +2,8 @@ package services;
 
 import entities.Ticket;
 import exceptions.InvalidTicketException;
-import exceptions.InvalidUserNameException;
 import repositories.TicketDAO;
-import repositories.UserDAO;
+
 
 public class TicketServiceImp implements TicketService{
 
@@ -21,16 +20,6 @@ public class TicketServiceImp implements TicketService{
             throw new InvalidTicketException("Ticket ID cannot be zero (0)");}
         return this.ticketDAO.createNewTicket(ticket);
 
-    }
-
-    @Override
-    public Ticket getTicketDescription(String description) {
-        return this.ticketDAO.getTicketDescription(description);
-    }
-
-    @Override
-    public Ticket getTicketAmount(long amount) {
-        return this.ticketDAO.getTicketAmount(amount);
     }
 
     @Override

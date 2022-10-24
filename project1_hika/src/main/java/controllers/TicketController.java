@@ -25,19 +25,4 @@ public class TicketController {
         ctx.result(json);
     };
 
-    public Handler getTicketAmountHandler = (ctx) -> {
-        long amount = Long.parseLong(ctx.pathParam("amount"));
-        Ticket ticket = Driver.ticketService.getTicketAmount(amount);
-        Gson gson = new Gson();
-        String json = gson.toJson(ticket);
-        ctx.result(json);
-    };
-    public Handler getTicketDescriptionHandler = (ctx) -> {
-        String description = new String(ctx.pathParam("description"));
-        Ticket ticket = Driver.ticketService.getTicketDescription(description);
-        Gson gson = new Gson();
-        String json = gson.toJson(ticket);
-        ctx.result(json);
-    };
-
 }

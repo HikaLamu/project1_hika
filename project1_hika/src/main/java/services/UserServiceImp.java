@@ -26,32 +26,17 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public User createUserName(User userName) {
-        if(userName.getUserName().length() == 0){
-            throw new InvalidUserNameException("User name cannot be empty");}
-        return this.userDAO.createUserName(userName);
-
-    }
-
-    @Override
-    public User createPassword(User password) {
-        if(password.getPassword().length() == 0){
-            throw new InvalidPasswordException("Password cannot be empty");}
-        return this.userDAO.createPassword(password);
-    }
-
-    @Override
     public User getUserById(int id) {
         return this.userDAO.getUserById(id);
     }
 
     @Override
-    public User updateUserName(User user) {
+    public User updateUser(User user) {
 
         if(user.getUserName().length() == 0){
             throw new InvalidUserNameException("Username cannot be empty");
         }
-        return this.userDAO.updateUserName(user);
+        return this.userDAO.updateUser(user);
     }
 
     @Override

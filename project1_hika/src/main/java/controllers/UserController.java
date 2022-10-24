@@ -17,25 +17,6 @@ public class UserController {
         ctx.result(userJson);
     };
 
-    public Handler createUserNameHandler = (ctx) -> {
-        String json = ctx.body();
-        Gson gson = new Gson();
-        User userName = gson.fromJson(json, User.class);
-        User newUserName = Driver.userService.createUserName(userName);
-        String userNameJson = gson.toJson(newUserName);
-        ctx.status(201);
-        ctx.result(userNameJson);
-    };
-
-    public Handler createPasswordHandler = (ctx) -> {
-        String json = ctx.body();
-        Gson gson = new Gson();
-        User password = gson.fromJson(json, User.class);
-        User newPassword = Driver.userService.createPassword(password);
-        String passwordJson = gson.toJson(newPassword);
-        ctx.status(201);
-        ctx.result(passwordJson);
-    };
 
     public Handler getUserByIdHandler = (ctx) -> {
         int id = Integer.parseInt(ctx.pathParam("id"));
@@ -45,12 +26,12 @@ public class UserController {
         ctx.result(json);
     };
 
-    public Handler updateUserNameHandler = (ctx) -> {
+    public Handler updateUserHandler = (ctx) -> {
         String userJSON = ctx.body();
         Gson gson = new Gson();
-        User userName = gson.fromJson(userJSON, User.class);
-        User updatedUserName = Driver.userService.updateUserName(userName);
-        String json = gson.toJson(updatedUserName);
+        User user = gson.fromJson(userJSON, User.class);
+        User updatedUser = Driver.userService.updateUser(user);
+        String json = gson.toJson(updatedUser);
         ctx.result(json);
     };
 

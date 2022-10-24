@@ -2,7 +2,6 @@ package driver;
 
 import controllers.TicketController;
 import controllers.UserController;
-import handlers.*;
 import io.javalin.Javalin;
 import repositories.TicketDAOPostgres;
 import repositories.UserDAOPostgres;
@@ -21,26 +20,29 @@ public class Driver {
 
         Javalin app = Javalin.create();
 
-          GetUserByIdHandler getUserByIdHandler = new GetUserByIdHandler();
-          CreateUserHandler createUserHandler = new CreateUserHandler();
-          DeleteUserHandler deleteUserHandler = new DeleteUserHandler();
+
           UserController userController = new UserController();
 
-          CreateNewTicketHandler createNewTicketHandler = new CreateNewTicketHandler();
-          GetTicketByIdHandler getTicketByIdHandler = new GetTicketByIdHandler();
           TicketController ticketController = new TicketController();
 
 
 
 
-        app.get("/users/{id}", getUserByIdHandler);
+        app.get("/users/{id}", userController.getUserByIdHandler);
 
-        app.post("/users", createUserHandler);
+        app.post("/users", userController.createUser);
 
-        app.delete("/users/{id}", deleteUserHandler);
+        app.put("/users", userController.updateUserHandler);
+
+        app.delete("/users/{id}", userController.deleteUserHandler);
+
+        app.get("/ticket", ticketController.getTicketByIdHandler);
+
+        app.post("/ticket", ticketController.createNewTicketHandler);
 
 
-        app.start();
+        app.start(8000);
+
 
     }
 

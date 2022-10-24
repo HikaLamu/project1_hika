@@ -5,6 +5,7 @@ import driver.Driver;
 import entities.Ticket;
 import io.javalin.http.Handler;
 
+
 public class TicketController {
 
     public Handler createNewTicketHandler = (ctx) -> {

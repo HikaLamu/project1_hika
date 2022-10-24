@@ -8,6 +8,7 @@ import java.sql.*;
 public class TicketDAOPostgres implements TicketDAO {
     @Override
     public Ticket createNewTicket(Ticket ticket) {
+        System.out.println(ticket);
         try(Connection connection = ConnectionFactory.getConnection()){
             String sql = "insert into ticket values(default, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

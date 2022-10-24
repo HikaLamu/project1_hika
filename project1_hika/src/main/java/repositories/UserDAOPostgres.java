@@ -8,6 +8,7 @@ import java.sql.*;
 public class UserDAOPostgres implements UserDAO {
     @Override
     public User createUser(User user) {
+        System.out.println(user);
         try(Connection connection = ConnectionFactory.getConnection()){
             String sql = "insert into employee values(default, ?, ? , ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

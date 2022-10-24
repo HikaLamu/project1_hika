@@ -7,7 +7,7 @@ import io.javalin.http.Handler;
 
 public class UserController {
 
-    public Handler createUserHandler = (ctx) -> {
+    public Handler createUser = (ctx) -> {
         String json = ctx.body();
         Gson gson = new Gson();
         User user = gson.fromJson(json, User.class);

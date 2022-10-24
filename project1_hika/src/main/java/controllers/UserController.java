@@ -1,4 +1,4 @@
-package services.controllers;
+package controllers;
 
 import com.google.gson.Gson;
 import driver.Driver;
@@ -21,7 +21,7 @@ public class UserController {
         String json = ctx.body();
         Gson gson = new Gson();
         User userName = gson.fromJson(json, User.class);
-        User newUserName = Driver.userService.createUser(userName);
+        User newUserName = Driver.userService.createUserName(userName);
         String userNameJson = gson.toJson(newUserName);
         ctx.status(201);
         ctx.result(userNameJson);
@@ -31,7 +31,7 @@ public class UserController {
         String json = ctx.body();
         Gson gson = new Gson();
         User password = gson.fromJson(json, User.class);
-        User newPassword = Driver.userService.createUser(password);
+        User newPassword = Driver.userService.createPassword(password);
         String passwordJson = gson.toJson(newPassword);
         ctx.status(201);
         ctx.result(passwordJson);
@@ -49,8 +49,8 @@ public class UserController {
         String userJSON = ctx.body();
         Gson gson = new Gson();
         User userName = gson.fromJson(userJSON, User.class);
-        User updateUserName = Driver.userService.updateUserName(userName);
-        String json = gson.toJson(updateUserName);
+        User updatedUserName = Driver.userService.updateUserName(userName);
+        String json = gson.toJson(updatedUserName);
         ctx.result(json);
     };
 

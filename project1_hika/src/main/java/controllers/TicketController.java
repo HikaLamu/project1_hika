@@ -1,9 +1,8 @@
-package services.controllers;
+package controllers;
 
 import com.google.gson.Gson;
 import driver.Driver;
 import entities.Ticket;
-import entities.User;
 import io.javalin.http.Handler;
 
 public class TicketController {
@@ -40,6 +39,5 @@ public class TicketController {
         String json = gson.toJson(ticket);
         ctx.result(json);
     };
-
 
 }

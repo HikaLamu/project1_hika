@@ -2,6 +2,8 @@ package repositories;
 
 import entities.User;
 
+import java.util.List;
+
 public interface UserDAO {
     User createUser (User user);
 
@@ -10,5 +12,8 @@ public interface UserDAO {
     User updateUser(User user);
 
     boolean deleteUserById(int id);
+
+    List<User> getAllUsers();
+
 
 }

@@ -6,15 +6,19 @@ import util.ConnectionFactory;
 import java.sql.*;
 
 public class TicketDAOPostgres implements TicketDAO {
+    private int userId;
+
     @Override
     public Ticket createNewTicket(Ticket ticket) {
         System.out.println(ticket);
         try(Connection connection = ConnectionFactory.getConnection()){
-            String sql = "insert into ticket values(default, ?, ?, ?)";
+            String sql = "insert into ticket values(default, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, ticket.getAmount());
             preparedStatement.setString(2, ticket.getDescription());
             preparedStatement.setInt(3, ticket.getStatus());
+            preparedStatement.setInt(4, ticket.getUserId());
+
 
             //How do you insert foreign key here?
 
@@ -46,6 +50,8 @@ public class TicketDAOPostgres implements TicketDAO {
             ticket.setId(rs.getInt("id"));
             ticket.setAmount(rs.getLong("amount"));
             ticket.setDescription(rs.getString("description"));
+            ticket.setStatus(rs.getInt("status"));
+            ticket.setUserId(rs.getInt("userid"));
             //how do you add foreign key value?
 
             return ticket;
@@ -55,4 +61,27 @@ public class TicketDAOPostgres implements TicketDAO {
             return null;
         }
     }
+
+    @Override
+    public Ticket updateTicket(Ticket ticket) {
+        try(Connection connection = ConnectionFactory.getConnection()){
+            String sql = "update ticket set amount = ?, description = ?, status = ?, userid = ? where id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setLong(1, ticket.getAmount());
+            preparedStatement.setString(2, ticket.getDescription());
+            preparedStatement.setInt(5, ticket.getStatus());
+            preparedStatement.setInt(3,ticket.getUserId());
+            preparedStatement.setInt(4, ticket.getId());
+
+
+            preparedStatement.executeUpdate();
+            return ticket;
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

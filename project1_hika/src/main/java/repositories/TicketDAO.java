@@ -9,4 +9,5 @@ public interface TicketDAO {
 
     Ticket getTicketById (int id);
 
+    Ticket updateTicket(Ticket ticket);
 }

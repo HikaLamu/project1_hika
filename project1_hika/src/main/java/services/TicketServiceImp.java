@@ -15,9 +15,6 @@ public class TicketServiceImp implements TicketService{
     @Override
     public Ticket createNewTicket(Ticket ticket) {
 
-        /*if(ticket.getTicketById() == 0){
-            throw new InvalidTicketException("Ticket ID cannot be zero (0)");}
-        return this.ticketDAO.createNewTicket(ticket);*/
         return this.ticketDAO.createNewTicket(ticket);
 
     }
@@ -25,5 +22,10 @@ public class TicketServiceImp implements TicketService{
     @Override
     public Ticket getTicketById(int id) {
         return this.ticketDAO.getTicketById(id);
+    }
+
+    @Override
+    public Ticket updateTicket(Ticket ticket){
+        return this.ticketDAO.updateTicket(ticket);
     }
 }

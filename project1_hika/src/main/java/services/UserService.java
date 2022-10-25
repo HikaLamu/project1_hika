@@ -2,6 +2,8 @@ package services;
 
 import entities.User;
 
+import java.util.List;
+
 
 public interface UserService {
 
@@ -12,5 +14,7 @@ public interface UserService {
     User updateUser(User user);
 
     boolean deleteUserById(int id);
+
+    List<User> getAllUsers();
 
 }

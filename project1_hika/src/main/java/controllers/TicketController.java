@@ -26,4 +26,13 @@ public class TicketController {
         ctx.result(json);
     };
 
+    public Handler updateTicketHandler = (ctx) -> {
+        String ticketJSON = ctx.body();
+        Gson gson = new Gson();
+        Ticket ticket = gson.fromJson(ticketJSON, Ticket.class);
+        Ticket updatedTicket = Driver.ticketService.updateTicket(ticket);
+        String json = gson.toJson(updatedTicket);
+        ctx.result(json);
+    };
+
 }

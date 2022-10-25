@@ -6,6 +6,8 @@ import exceptions.InvalidUserNameException;
 import entities.User;
 import repositories.UserDAO;
 
+import java.util.List;
+
 public class UserServiceImp implements UserService{
 
     private UserDAO userDAO;
@@ -16,6 +18,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public User createUser(User user) {
+        System.out.println(user);
         if(user.getUserName().length()==0) {
             throw new InvalidUserNameException("User name cannot be empty");
         }
@@ -43,4 +46,10 @@ public class UserServiceImp implements UserService{
     public boolean deleteUserById(int id) {
         return this.userDAO.deleteUserById(id);
     }
+
+    @Override
+    public List<User> getAllUsers(){
+        return this.userDAO.getAllUsers();
+    }
+
 }

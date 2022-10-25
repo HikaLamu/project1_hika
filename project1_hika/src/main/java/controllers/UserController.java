@@ -5,6 +5,8 @@ import driver.Driver;
 import entities.User;
 import io.javalin.http.Handler;
 
+import java.util.List;
+
 public class UserController {
 
     public Handler createUser = (ctx) -> {
@@ -44,5 +46,12 @@ public class UserController {
             ctx.status(400);
             ctx.result("Could not process your delete request");
         }
+    };
+
+    public Handler getAllUsers = (ctx) ->{
+        List<User> books = Driver.userService.getAllUsers();
+        Gson gson = new Gson();
+        String json = gson.toJson(books);
+        ctx.result(json);
     };
 }

@@ -4,6 +4,8 @@ import entities.User;
 import util.ConnectionFactory;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOPostgres implements UserDAO {
     @Override
@@ -90,4 +92,29 @@ public class UserDAOPostgres implements UserDAO {
         }
     }
 
+    @Override
+    public List<User> getAllUsers() {
+        try(Connection connection = ConnectionFactory.getConnection()){
+            String sql = "select * from employee";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            List<User> userList = new ArrayList();
+
+            while(rs.next()){
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("userpassword"));
+                user.setIsAdmin(rs.getBoolean("isadmin"));
+                userList.add(user);
+            }
+            return userList;
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

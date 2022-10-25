@@ -34,9 +34,13 @@ public class Driver {
 
         app.delete("/users/{id}", userController.deleteUserHandler);
 
+        app.get("/users", userController.getAllUsers);
+
         app.get("/ticket/{id}", ticketController.getTicketByIdHandler);
 
         app.post("/ticket", ticketController.createNewTicketHandler);
+
+        app.put("/ticket", ticketController.updateTicketHandler);
 
 
         app.start(8070);

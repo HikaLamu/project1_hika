@@ -4,24 +4,23 @@ import java.util.Objects;
 
 public class Ticket {
 
+
     private int id;
-
     private long amount;
-
     private String description;
-
     private int status;
+    private int userId;
 
 
     public Ticket() {
     }
 
-    public Ticket(int id, long amount, String description, int status) {
+    public Ticket(int id, long amount, String description, int status, int userId) {
         this.id = id;
         this.amount = amount;
         this.description = description;
         this.status = status;
-
+        this.userId = userId;
     }
 
     @Override
@@ -31,6 +30,7 @@ public class Ticket {
                 ", amount=" + amount +
                 ", description='" + description + '\'' +
                 ", status=" + status +
+                ", userId=" + userId +
                 '}';
     }
 
@@ -39,7 +39,7 @@ public class Ticket {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return id == ticket.id && amount == ticket.amount && Objects.equals(description, ticket.description) && Objects.equals(status, ticket.status);
+        return id == ticket.id && amount == ticket.amount && status == ticket.status && userId == ticket.userId && Objects.equals(description, ticket.description);
     }
 
     @Override
@@ -75,9 +75,16 @@ public class Ticket {
         return status;
     }
 
-    /*public void setStatus(int status) {
+    public void setStatus(int status) {
         this.status = status;
-    }*/
+    }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
 }

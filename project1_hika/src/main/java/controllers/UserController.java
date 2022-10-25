@@ -17,7 +17,6 @@ public class UserController {
         ctx.result(userJson);
     };
 
-
     public Handler getUserByIdHandler = (ctx) -> {
         int id = Integer.parseInt(ctx.pathParam("id"));
         User user = Driver.userService.getUserById(id);

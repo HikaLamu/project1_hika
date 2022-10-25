@@ -26,8 +26,6 @@ public class Driver {
           TicketController ticketController = new TicketController();
 
 
-
-
         app.get("/users/{id}", userController.getUserByIdHandler);
 
         app.post("/users", userController.createUser);
@@ -36,13 +34,12 @@ public class Driver {
 
         app.delete("/users/{id}", userController.deleteUserHandler);
 
-        app.get("/ticket", ticketController.getTicketByIdHandler);
+        app.get("/ticket/{id}", ticketController.getTicketByIdHandler);
 
         app.post("/ticket", ticketController.createNewTicketHandler);
 
 
-        app.start(8000);
-
+        app.start(8070);
 
     }
 

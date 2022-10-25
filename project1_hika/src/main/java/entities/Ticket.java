@@ -10,16 +10,18 @@ public class Ticket {
 
     private String description;
 
-    private Status status;
+    private int status;
+
 
     public Ticket() {
     }
 
-    public Ticket(int id, long amount, String description, Status status) {
+    public Ticket(int id, long amount, String description, int status) {
         this.id = id;
         this.amount = amount;
         this.description = description;
         this.status = status;
+
     }
 
     @Override
@@ -69,15 +71,13 @@ public class Ticket {
         this.description = description;
     }
 
-    public Status getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    /*public void setStatus(int status) {
         this.status = status;
-    }
+    }*/
 
-    public int getTicketById() {
-        return id;
-    }
+
 }

@@ -8,16 +8,14 @@ import java.sql.*;
 public class UserDAOPostgres implements UserDAO {
     @Override
     public User createUser(User user) {
-        System.out.println(user);
         try(Connection connection = ConnectionFactory.getConnection()){
             String sql = "insert into employee values(default, ?, ? , ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(1,user.getUserName());
             preparedStatement.setString(2,user.getPassword());
             preparedStatement.setBoolean(3,user.isAdmin());
 
             preparedStatement.execute();
-
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             resultSet.next();
             int generatedKey = resultSet.getInt("id");
@@ -44,7 +42,7 @@ public class UserDAOPostgres implements UserDAO {
             User user = new User();
             user.setId(rs.getInt("id"));
             user.setUserName(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
+            user.setPassword(rs.getString("userpassword"));
             user.setIsAdmin(rs.getBoolean("isadmin"));
 
             return user;

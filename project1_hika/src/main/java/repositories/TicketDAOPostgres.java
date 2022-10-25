@@ -10,10 +10,12 @@ public class TicketDAOPostgres implements TicketDAO {
     public Ticket createNewTicket(Ticket ticket) {
         System.out.println(ticket);
         try(Connection connection = ConnectionFactory.getConnection()){
-            String sql = "insert into ticket values(default, ?, ?)";
+            String sql = "insert into ticket values(default, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, ticket.getAmount());
             preparedStatement.setString(2, ticket.getDescription());
+            preparedStatement.setInt(3, ticket.getStatus());
+
             //How do you insert foreign key here?
 
             preparedStatement.execute();

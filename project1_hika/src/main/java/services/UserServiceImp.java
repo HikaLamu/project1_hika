@@ -16,7 +16,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public User createUser(User user) {
-        if(user.getUserName().length() == 0){
+        if(user.getUserName().length()==0) {
             throw new InvalidUserNameException("User name cannot be empty");
         }
         if(user.getPassword().length() == 0){

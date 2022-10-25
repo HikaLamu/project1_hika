@@ -6,29 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="1f989f54-e1c9-49bd-a04d-9a65bb321e14" name="Changes" comment="Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/driver/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/CreateNewTicketHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/CreateUserHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/DeleteUserHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/GetTicketByIdHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/GetUserByIdHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/UpdateUserHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/InvalidTicketException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserDAOPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserDAOPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/TicketServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TicketServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/TicketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/TicketController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/driver/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/driver/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handlers/CreateNewTicketHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handlers/CreateUserHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handlers/DeleteUserHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handlers/GetTicketByIdHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handlers/GetUserByIdHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handlers/UpdateUserHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/InvalidTicketException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketDAOPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/TicketDAOPostgres.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/repositories/UserDAOPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/UserDAOPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/TicketServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/TicketServiceImp.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +91,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConnectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project1_hika" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.hika.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.hika" />
+      <option name="MAIN_CLASS_NAME" value="dev.hika.ConnectionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ConnectionTest.connection_available" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project1_hika" />
       <extension name="coverage">
@@ -115,6 +125,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Driver" />
+        <item itemvalue="JUnit.ConnectionTest" />
         <item itemvalue="JUnit.ConnectionTest.connection_available" />
       </list>
     </recent_temporary>
@@ -196,7 +207,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/services/UserService.java</url>
-          <line>6</line>
+          <line>5</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
@@ -206,6 +217,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.net.BindException" package="java.net" />
           <option name="timeStamp" value="4" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="5" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

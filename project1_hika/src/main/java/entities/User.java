@@ -1,6 +1,5 @@
 package entities;
 
-import javax.imageio.stream.FileCacheImageOutputStream;
 import java.util.Objects;
 
 public class User {
@@ -8,16 +7,12 @@ public class User {
     private int id;
 
     private String userName;
-
     private String password;
-
-    //private boolean isUserNameAvailable;
 
     private boolean isAdmin;
 
-
     public User() {
-    }
+   }
 
     public User(int id, String userName, String password, boolean isAdmin) {
         this.id = id;
@@ -60,9 +55,7 @@ public class User {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    public void setUserName(String userName) { this.userName = userName;}
 
     public String getPassword() {
         return password;
@@ -79,7 +72,6 @@ public class User {
     public void setIsAdmin(boolean admin) {
         isAdmin = admin;
     }
-
 
 
 }

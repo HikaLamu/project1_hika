@@ -25,22 +25,24 @@ public class Driver {
 
           TicketController ticketController = new TicketController();
 
+        app.post("/register", userController.createUser);
+
+        app.put("/login/{userName}/{password}",userController.loginUser);
 
         app.get("/users/{id}", userController.getUserByIdHandler);
 
-        app.post("/users", userController.createUser);
+        app.put("/update", userController.updateUserHandler);
 
-        app.put("/users", userController.updateUserHandler);
-
-        app.delete("/users/{id}", userController.deleteUserHandler);
+        app.delete("/delete/{id}", userController.deleteUserHandler);
 
         app.get("/users", userController.getAllUsers);
 
-        app.get("/ticket/{id}", ticketController.getTicketByIdHandler);
-
         app.post("/ticket", ticketController.createNewTicketHandler);
 
-        app.put("/ticket", ticketController.updateTicketHandler);
+        app.get("/ticket/{id}", ticketController.getTicketByIdHandler);
+
+        app.put("/updateticket", ticketController.updateTicketHandler);
+
 
 
         app.start(8070);

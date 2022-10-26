@@ -10,12 +10,12 @@ import java.util.List;
 public class UserDAOPostgres implements UserDAO {
     @Override
     public User createUser(User user) {
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             String sql = "insert into employee values(default, ?, ? , ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1,user.getUserName());
-            preparedStatement.setString(2,user.getPassword());
-            preparedStatement.setBoolean(3,user.isAdmin());
+            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setBoolean(3, user.isAdmin());
 
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -23,8 +23,7 @@ public class UserDAOPostgres implements UserDAO {
             int generatedKey = resultSet.getInt("id");
             user.setId(generatedKey);
             return user;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
@@ -33,10 +32,10 @@ public class UserDAOPostgres implements UserDAO {
     @Override
     public User getUserById(int id) {
 
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             String sql = "select * from employee where id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
 
             ResultSet rs = ps.executeQuery();
             rs.next();
@@ -48,8 +47,7 @@ public class UserDAOPostgres implements UserDAO {
             user.setIsAdmin(rs.getBoolean("isadmin"));
 
             return user;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -57,19 +55,18 @@ public class UserDAOPostgres implements UserDAO {
 
     @Override
     public User updateUser(User user) {
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             String sql = "update employee set username = ?, password = ?, isadmin = ? where id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2,user.getPassword());
-            preparedStatement.setBoolean(3,user.isAdmin());
-            preparedStatement.setInt(4,user.getId());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setBoolean(3, user.isAdmin());
+            preparedStatement.setInt(4, user.getId());
 
             preparedStatement.executeUpdate();
             return user;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -77,16 +74,15 @@ public class UserDAOPostgres implements UserDAO {
 
     @Override
     public boolean deleteUserById(int id) {
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             String sql = "delete from employee where id =?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
 
             preparedStatement.execute();
             return true;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
@@ -94,7 +90,7 @@ public class UserDAOPostgres implements UserDAO {
 
     @Override
     public List<User> getAllUsers() {
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             String sql = "select * from employee";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -102,7 +98,7 @@ public class UserDAOPostgres implements UserDAO {
 
             List<User> userList = new ArrayList();
 
-            while(rs.next()){
+            while (rs.next()) {
                 User user = new User();
                 user.setId(rs.getInt("id"));
                 user.setUserName(rs.getString("username"));
@@ -111,10 +107,35 @@ public class UserDAOPostgres implements UserDAO {
                 userList.add(user);
             }
             return userList;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
+
+    @Override
+    public User getUserByCreds(String userName, String password) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            String sql = "select * from employee where username=? and userpassword=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "username");
+            preparedStatement.setString(2, "userpassword");
+            ResultSet rs = preparedStatement.executeQuery();
+
+            rs.next();
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setUserName(rs.getString("username"));
+            user.setPassword(rs.getString("userpassword"));
+            user.setIsAdmin(rs.getBoolean("isadmin"));
+            return user;
+
+        }
+        catch(SQLException e)
+    {
+        e.printStackTrace();
+        return null;
+    }
+
+}
 }

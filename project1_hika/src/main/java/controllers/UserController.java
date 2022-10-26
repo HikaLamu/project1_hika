@@ -49,9 +49,17 @@ public class UserController {
     };
 
     public Handler getAllUsers = (ctx) ->{
-        List<User> books = Driver.userService.getAllUsers();
+        List<User> users = Driver.userService.getAllUsers();
         Gson gson = new Gson();
-        String json = gson.toJson(books);
+        String json = gson.toJson(users);
+        ctx.result(json);
+    };
+    public Handler loginUser = (ctx) ->{
+        String userName = ctx.pathParam("userName");
+        String password = ctx.pathParam("password");
+       User user = Driver.userService.loginUser(userName,password);
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
         ctx.result(json);
     };
 }

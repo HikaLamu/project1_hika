@@ -3,6 +3,8 @@ package services;
 import entities.Ticket;
 import repositories.TicketDAO;
 
+import java.util.List;
+
 
 public class TicketServiceImp implements TicketService{
 
@@ -28,4 +30,5 @@ public class TicketServiceImp implements TicketService{
     public Ticket updateTicket(Ticket ticket){
         return this.ticketDAO.updateTicket(ticket);
     }
+
 }

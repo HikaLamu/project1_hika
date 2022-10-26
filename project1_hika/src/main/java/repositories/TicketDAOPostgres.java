@@ -13,6 +13,7 @@ public class TicketDAOPostgres implements TicketDAO {
         System.out.println(ticket);
         try(Connection connection = ConnectionFactory.getConnection()){
             String sql = "insert into ticket values(default, ?, ?, ?, ?)";
+            //"select * from employee where userId=? and password=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, ticket.getAmount());
             preparedStatement.setString(2, ticket.getDescription());

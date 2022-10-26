@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1f989f54-e1c9-49bd-a04d-9a65bb321e14" name="Changes" comment="Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/driver/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" afterDir="false" />
@@ -118,10 +116,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DAOPostgresTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project1_hika" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.hika.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.hika" />
+      <option name="MAIN_CLASS_NAME" value="dev.hika.DAOPostgresTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DAOPostgresTest.create_user_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project1_hika" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.hika.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.hika" />
+      <option name="MAIN_CLASS_NAME" value="dev.hika.DAOPostgresTest" />
+      <option name="METHOD_NAME" value="create_user_test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Driver" />
         <item itemvalue="JUnit.ConnectionTest" />
+        <item itemvalue="JUnit.DAOPostgresTest.create_user_test" />
+        <item itemvalue="JUnit.DAOPostgresTest" />
         <item itemvalue="JUnit.ConnectionTest.connection_available" />
       </list>
     </recent_temporary>

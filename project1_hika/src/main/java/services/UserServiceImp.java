@@ -52,4 +52,10 @@ public class UserServiceImp implements UserService{
         return this.userDAO.getAllUsers();
     }
 
+    @Override
+    public User loginUser(String userName,String password) {
+        return  this.userDAO.getUserByCreds(userName,password);
+    }
+
+
 }

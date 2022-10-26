@@ -15,5 +15,7 @@ public interface UserDAO {
 
     List<User> getAllUsers();
 
+    User getUserByCreds(String userName,String password);
+
 
 }

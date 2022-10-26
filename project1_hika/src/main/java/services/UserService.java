@@ -16,5 +16,6 @@ public interface UserService {
     boolean deleteUserById(int id);
 
     List<User> getAllUsers();
+    User loginUser(String userName,String password);
 
 }

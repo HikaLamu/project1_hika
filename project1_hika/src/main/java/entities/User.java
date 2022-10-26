@@ -3,6 +3,7 @@ package entities;
 import java.util.Objects;
 
 public class User {
+    public String getPassword;
     private int id;
     private String userName;
     private String password;

@@ -18,4 +18,6 @@ public interface UserDAO {
     User getUserByCreds(String userName,String password);
 
 
+    User getUserByUserName(String userName);
+
 }

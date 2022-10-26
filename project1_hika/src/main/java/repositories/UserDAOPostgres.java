@@ -139,4 +139,27 @@ public class UserDAOPostgres implements UserDAO {
     }
 
 }
+    @Override
+    public User getUserByUserName(String userName) {
+
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            String sql = "select * from employee where username = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, userName);
+
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setUserName(rs.getString("username"));
+            user.setPassword(rs.getString("userpassword"));
+            user.setIsAdmin(rs.getBoolean("isadmin"));
+
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

@@ -7,12 +7,13 @@
     <list default="true" id="1f989f54-e1c9-49bd-a04d-9a65bb321e14" name="Changes" comment="Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/driver/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserDAOPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserDAOPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/TicketServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TicketServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/repositories/UserDAOPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/UserDAOPostgres.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +68,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ConnectionTest">
+  <component name="RunManager" selected="Application.Driver">
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="driver.Driver" />
       <module name="project1_hika" />
@@ -145,8 +146,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ConnectionTest" />
         <item itemvalue="Application.Driver" />
+        <item itemvalue="JUnit.ConnectionTest" />
         <item itemvalue="JUnit.DAOPostgresTest.create_user_test" />
         <item itemvalue="JUnit.DAOPostgresTest" />
         <item itemvalue="JUnit.ConnectionTest.connection_available" />
@@ -232,6 +233,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/services/UserService.java</url>
           <line>7</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/dev/hika/ConnectionTest.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.sql.SQLException" package="java.sql" />

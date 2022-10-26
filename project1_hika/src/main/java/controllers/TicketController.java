@@ -3,7 +3,6 @@ package controllers;
 import com.google.gson.Gson;
 import driver.Driver;
 import entities.Ticket;
-import entities.User;
 import io.javalin.http.Handler;
 
 import java.util.List;

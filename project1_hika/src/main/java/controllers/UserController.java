@@ -10,6 +10,7 @@ import java.util.List;
 public class UserController {
 
     public Handler createUser = (ctx) -> {
+        System.out.println("create user");
         String json = ctx.body();
         Gson gson = new Gson();
         User user = gson.fromJson(json, User.class);
@@ -57,9 +58,10 @@ public class UserController {
     public Handler loginUser = (ctx) ->{
         String userName = ctx.pathParam("userName");
         String password = ctx.pathParam("password");
-       User user = Driver.userService.loginUser(userName,password);
+        User user = Driver.userService.loginUser(userName,password);
         Gson gson = new Gson();
         String json = gson.toJson(user);
         ctx.result(json);
     };
+
 }

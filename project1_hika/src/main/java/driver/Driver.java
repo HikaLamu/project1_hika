@@ -12,6 +12,7 @@ import services.UserServiceImp;
 
 public class Driver {
 
+    //public static User loggedInUser = null;
     public static UserService userService = new UserServiceImp(new UserDAOPostgres());
 
     public static TicketService ticketService = new TicketServiceImp(new TicketDAOPostgres());
@@ -47,7 +48,7 @@ public class Driver {
 
 
 
-        app.start(8070);
+        app.start(8050);
 
     }
 

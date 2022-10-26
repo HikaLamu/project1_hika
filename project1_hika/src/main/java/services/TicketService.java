@@ -13,6 +13,7 @@ public interface TicketService {
 
     Ticket updateTicket (Ticket ticket);
 
+    List<Ticket> getAllPendingTickets();
 
 
 }

@@ -43,6 +43,8 @@ public class Driver {
 
         app.put("/updateticket", ticketController.updateTicketHandler);
 
+        app.get("/pendingtickets", ticketController.getAllPendingTickets);
+
 
 
         app.start(8070);

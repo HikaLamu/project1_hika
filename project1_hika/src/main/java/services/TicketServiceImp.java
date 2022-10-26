@@ -31,4 +31,11 @@ public class TicketServiceImp implements TicketService{
         return this.ticketDAO.updateTicket(ticket);
     }
 
+    @Override
+    public List<Ticket> getAllPendingTickets() {
+
+        return this.ticketDAO.getAllPendingTickets();
+
+    }
+
 }

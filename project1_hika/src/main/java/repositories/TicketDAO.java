@@ -2,6 +2,7 @@ package repositories;
 
 import entities.Status;
 import entities.Ticket;
+import entities.User;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public interface TicketDAO {
     Ticket getTicketById (int id);
 
     Ticket updateTicket(Ticket ticket);
+
+    List<Ticket> getAllPendingTickets();
 
 
 }

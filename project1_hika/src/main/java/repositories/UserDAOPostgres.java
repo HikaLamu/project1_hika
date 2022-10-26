@@ -115,11 +115,12 @@ public class UserDAOPostgres implements UserDAO {
 
     @Override
     public User getUserByCreds(String userName, String password) {
+        System.out.println(userName + password);
         try (Connection connection = ConnectionFactory.getConnection()) {
             String sql = "select * from employee where username=? and userpassword=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, "username");
-            preparedStatement.setString(2, "userpassword");
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, password);
             ResultSet rs = preparedStatement.executeQuery();
 
             rs.next();

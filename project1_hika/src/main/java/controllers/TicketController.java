@@ -3,7 +3,10 @@ package controllers;
 import com.google.gson.Gson;
 import driver.Driver;
 import entities.Ticket;
+import entities.User;
 import io.javalin.http.Handler;
+
+import java.util.List;
 
 
 public class TicketController {
@@ -32,6 +35,13 @@ public class TicketController {
         Ticket ticket = gson.fromJson(ticketJSON, Ticket.class);
         Ticket updatedTicket = Driver.ticketService.updateTicket(ticket);
         String json = gson.toJson(updatedTicket);
+        ctx.result(json);
+    };
+
+    public Handler getAllPendingTickets = (ctx) ->{
+        List<Ticket> pendingTickets = Driver.ticketService.getAllPendingTickets();
+        Gson gson = new Gson();
+        String json = gson.toJson(pendingTickets);
         ctx.result(json);
     };
 

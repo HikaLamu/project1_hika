@@ -9,15 +9,14 @@ public interface UserDAO {
 
     User getUserById(int id);
 
-    User updateUser(User user);
-
-    boolean deleteUserById(int id);
 
     List<User> getAllUsers();
 
-    User getUserByCreds(String userName,String password);
+    List<User> getUserByCreds(String userName,String password);
 
 
     User getUserByUserName(String userName);
+
+  //  User getUserByName(String username);
 
 }

@@ -12,43 +12,37 @@ import services.UserServiceImp;
 
 public class Driver {
 
-    //public static User loggedInUser = null;
     public static UserService userService = new UserServiceImp(new UserDAOPostgres());
 
     public static TicketService ticketService = new TicketServiceImp(new TicketDAOPostgres());
 
     public static void main(String[] args) {
 
-        Javalin app = Javalin.create();
+        Javalin app = Javalin.create().start(8070);;
+        UserController userController = new UserController();
 
+        TicketController ticketController = new TicketController();
 
-          UserController userController = new UserController();
+        app.post("/createuser", userController.createUser);
 
-          TicketController ticketController = new TicketController();
-
-        app.post("/register", userController.createUser);
+        //app.get("/users", userController.getAllUsers);
 
         app.put("/login/{userName}/{password}",userController.loginUser);
 
-        app.get("/users/{id}", userController.getUserByIdHandler);
+        //app.get("/users/{id}", userController.getUserByIdHandler);
 
-        app.put("/update", userController.updateUserHandler);
+        app.post("/createticket", ticketController.createNewTicketHandler);
 
-        app.delete("/delete/{id}", userController.deleteUserHandler);
 
-        app.get("/users", userController.getAllUsers);
+        //app.put("/updateticket", ticketController.updateTicketHandler);
 
-        app.post("/ticket", ticketController.createNewTicketHandler);
+        //app.get("/getalltickets/{userName}/{password}",ticketController.getAllTicketsBasedOnRole);
+
+        app.get("/allpendingtickets/{userName}/{password}",ticketController.getAllPendingTicketsBasedOnRole);
 
         app.get("/ticket/{id}", ticketController.getTicketByIdHandler);
 
-        app.put("/updateticket", ticketController.updateTicketHandler);
-
-        app.get("/pendingtickets", ticketController.getAllPendingTickets);
-
-
-
-        app.start(8050);
+        app.put("/updatestatus",ticketController.getStatusUpdate);
 
     }
 

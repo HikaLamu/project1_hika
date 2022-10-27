@@ -8,14 +8,14 @@ public class Ticket {
     private int id;
     private long amount;
     private String description;
-    private int status;
+    private String status;
     private int userId;
 
 
     public Ticket() {
     }
 
-    public Ticket(int id, long amount, String description, int status, int userId) {
+    public Ticket(int id, long amount, String description, String status, int userId) {
         this.id = id;
         this.amount = amount;
         this.description = description;
@@ -71,11 +71,11 @@ public class Ticket {
         this.description = description;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

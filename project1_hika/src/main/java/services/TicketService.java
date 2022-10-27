@@ -1,5 +1,6 @@
 package services;
 
+import dto.StatusUpdate;
 import entities.Ticket;
 import entities.User;
 
@@ -13,7 +14,12 @@ public interface TicketService {
 
     Ticket updateTicket (Ticket ticket);
 
-    List<Ticket> getAllPendingTickets();
+    Ticket getStatusUpdateByAdmin(StatusUpdate stsup);
+
+    List<Ticket> getAllTicketsBesedOnRole(String username,String password);
+
+    List<Ticket> getAllPendingTicketsBesedOnRole(String username,String password);
+
 
 
 }

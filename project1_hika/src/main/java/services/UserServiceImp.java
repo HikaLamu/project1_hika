@@ -32,21 +32,6 @@ public class UserServiceImp implements UserService {
         return this.userDAO.getUserById(id);
     }
 
-    @Override
-    public User updateUser(User user) {
-
-        if (user.getUserName().length() == 0) {
-            throw new InvalidUserNameException("Password cannot be empty");
-
-        }
-        ;
-        return this.userDAO.updateUser(user);
-    }
-
-    @Override
-    public boolean deleteUserById(int id) {
-        return this.userDAO.deleteUserById(id);
-    }
 
     @Override
     public List<User> getAllUsers() {
@@ -54,7 +39,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User loginUser(String userName, String password) {
+    public List<User> loginUser(String userName, String password) {
         return this.userDAO.getUserByCreds(userName, password);
     }
 

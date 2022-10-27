@@ -1,5 +1,6 @@
 package services;
 
+import dto.StatusUpdate;
 import entities.Ticket;
 import repositories.TicketDAO;
 
@@ -31,11 +32,20 @@ public class TicketServiceImp implements TicketService{
         return this.ticketDAO.updateTicket(ticket);
     }
 
+
     @Override
-    public List<Ticket> getAllPendingTickets() {
+    public Ticket getStatusUpdateByAdmin(StatusUpdate stsup) {
+        return this.ticketDAO.getTicketStatusupdatedByAdmin(stsup);
+    }
 
-        return this.ticketDAO.getAllPendingTickets();
+    @Override
+    public List<Ticket> getAllTicketsBesedOnRole(String username, String password) {
+        return this.ticketDAO.getAllTicketsBesedonRole(username,password);
+    }
 
+    @Override
+    public List<Ticket> getAllPendingTicketsBesedOnRole(String username, String password) {
+        return this.ticketDAO.getAllPendingTicketsByRole(username, password);
     }
 
 }

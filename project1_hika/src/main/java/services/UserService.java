@@ -11,12 +11,9 @@ public interface UserService {
 
     User getUserById(int id);
 
-    User updateUser(User user);
-
-    boolean deleteUserById(int id);
 
     List<User> getAllUsers();
-    User loginUser(String userName,String password);
+   List<User> loginUser(String userName,String password);
 
 
 }

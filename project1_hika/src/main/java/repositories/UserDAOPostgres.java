@@ -1,6 +1,7 @@
 package repositories;
 
 import entities.User;
+import exceptions.UserNameIsAlreadyPresent;
 import util.ConnectionFactory;
 
 import java.sql.*;
@@ -8,24 +9,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOPostgres implements UserDAO {
+
+
     @Override
     public User createUser(User user) {
-        try (Connection connection = ConnectionFactory.getConnection()) {
-            String sql = "insert into employee values(default, ?, ? , ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setBoolean(3, user.isAdmin());
+        UserDAOPostgres dao=new  UserDAOPostgres();
+        User userinfo=dao.getUserByUserName(user.getUserName());
+        if(null==userinfo){
 
-            preparedStatement.execute();
-            ResultSet resultSet = preparedStatement.getGeneratedKeys();
-            resultSet.next();
-            int generatedKey = resultSet.getInt("id");
-            user.setId(generatedKey);
-            return user;
-        } catch (SQLException e) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
+
+                String sql = "insert into employee values(default, ?, ? , ?)";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setString(1, user.getUserName());
+                preparedStatement.setString(2, user.getPassword());
+                preparedStatement.setBoolean(3, user.isAdmin());
+
+                preparedStatement.execute();
+                ResultSet resultSet = preparedStatement.getGeneratedKeys();
+                resultSet.next();
+                int generatedKey = resultSet.getInt("id");
+                user.setId(generatedKey);
+                return user;
+
+        } catch (SQLException e){
             e.printStackTrace();
+        } }else {
+            try {
+                throw new UserNameIsAlreadyPresent("username name already Exist please try with another one");
+            } catch (UserNameIsAlreadyPresent ex) {
+                ex.printStackTrace();
+            }
         }
+
         return null;
     }
 
@@ -50,41 +66,6 @@ public class UserDAOPostgres implements UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
-        }
-    }
-
-    @Override
-    public User updateUser(User user) {
-        try (Connection connection = ConnectionFactory.getConnection()) {
-            String sql = "update employee set username = ?, password = ?, isadmin = ? where id = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setBoolean(3, user.isAdmin());
-            preparedStatement.setInt(4, user.getId());
-
-            preparedStatement.executeUpdate();
-            return user;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    @Override
-    public boolean deleteUserById(int id) {
-        try (Connection connection = ConnectionFactory.getConnection()) {
-            String sql = "delete from employee where id =?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            preparedStatement.setInt(1, id);
-
-            preparedStatement.execute();
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
         }
     }
 
@@ -114,7 +95,7 @@ public class UserDAOPostgres implements UserDAO {
     }
 
     @Override
-    public User getUserByCreds(String userName, String password) {
+    public List<User> getUserByCreds(String userName, String password) {
         System.out.println(userName + password);
         try (Connection connection = ConnectionFactory.getConnection()) {
             String sql = "select * from employee where username=? and userpassword=?";
@@ -129,16 +110,21 @@ public class UserDAOPostgres implements UserDAO {
             user.setUserName(rs.getString("username"));
             user.setPassword(rs.getString("userpassword"));
             user.setIsAdmin(rs.getBoolean("isadmin"));
-            return user;
-
+            if(user.isAdmin()==true){
+                UserDAOPostgres daoPostgres=new UserDAOPostgres();
+                return daoPostgres.getAllUsers();
+            }else {
+                ArrayList<User> list=new ArrayList<>();
+                list.add(user);
+                return list;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
-        catch(SQLException e)
-    {
-        e.printStackTrace();
-        return null;
+
     }
 
-}
     @Override
     public User getUserByUserName(String userName) {
 

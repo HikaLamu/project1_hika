@@ -8,7 +8,6 @@ import repositories.TicketDAOPostgres;
 import repositories.UserDAO;
 import repositories.UserDAOPostgres;
 
-import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DAOPostgresTest {
@@ -18,7 +17,7 @@ public class DAOPostgresTest {
     @Test
     @Order(1)
     void create_user_test(){
-        User newUser = new User(15,"Thomaas Partey","Arsenal",false);
+        User newUser = new User(1,"Hika Lamu","abcdef",false);
         User registeredUser = userDAO.createUser(newUser);
         Assertions.assertNotEquals(0,registeredUser.getId());
     }
@@ -26,28 +25,25 @@ public class DAOPostgresTest {
     @Order(2)
     void create_ticket_test(){
 
-        Ticket newTicket = new Ticket();
-        newTicket.setAmount(700);
-        newTicket.setUserId(4);
-        newTicket.setDescription("Office Supply");
+        Ticket newTicket = new Ticket(1, 700, "Office Supply", "PENDING", 2);
         Ticket createdTicket = ticketDAO.createNewTicket(newTicket);
         Assertions.assertNotEquals(0,createdTicket.getId());
     }
-
-
     @Test
     @Order(3)
+    void get_ticket_by_id_test(){
+        Ticket gottenTicket = ticketDAO.getTicketById(1);
+        Assertions.assertEquals(2500,gottenTicket.getAmount());
+    }
+
+    @Test
+    @Order(4)
     void update_ticket_status_test(){
-        //When testing update, you should either get the book and use its values or create a completely new book and use those values
         Ticket ticket = ticketDAO.getTicketById(1);
-        Assertions.assertNotNull(ticket);
-        List<User> user = userDAO.getUserByCreds("Adam Smith", "abcdef");
-        Assertions.assertNotNull(user);
-        Ticket ticket1=new Ticket(1,20000,"office use","PENDING",4);
-
-        Ticket ticket2=ticketDAO.updateTicket(ticket1);
-        Assertions.assertEquals(ticket2,ticket1);
-
+        Ticket ticket1=new Ticket(ticket.getId(), ticket.getAmount(), ticket.getDescription(), "APPROVED", ticket.getUserId() );
+        ticketDAO.updateTicket(ticket1);
+        Ticket updatedTicket = ticketDAO.getTicketById(ticket1.getId());
+        Assertions.assertEquals("APPROVED",updatedTicket.getStatus());
 
 
 

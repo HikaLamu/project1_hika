@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f989f54-e1c9-49bd-a04d-9a65bb321e14" name="Changes" comment="Push">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/driver/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketDAOPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ConnectionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dev/hika/DAOPostgresTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/hika/DAOPostgresTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/TicketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/TicketController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/driver/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/driver/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketDAOPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/TicketDAOPostgres.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/ConnectionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/ConnectionFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/dev/hika/DAOPostgresTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/dev/hika/DAOPostgresTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,11 +4,7 @@ import com.google.gson.Gson;
 import driver.Driver;
 import dto.StatusUpdate;
 import entities.Ticket;
-import entities.User;
 import io.javalin.http.Handler;
-import org.eclipse.jetty.util.DateCache;
-
-
 import java.util.List;
 
 

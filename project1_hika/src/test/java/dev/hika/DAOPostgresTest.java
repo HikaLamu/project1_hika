@@ -1,11 +1,14 @@
 package dev.hika;
 
+import entities.Ticket;
 import entities.User;
 import org.junit.jupiter.api.*;
 import repositories.TicketDAO;
 import repositories.TicketDAOPostgres;
 import repositories.UserDAO;
 import repositories.UserDAOPostgres;
+
+import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DAOPostgresTest {
@@ -15,31 +18,39 @@ public class DAOPostgresTest {
     @Test
     @Order(1)
     void create_user_test(){
-        User newUser = new User(0,"John Doe","abcde",false);
+        User newUser = new User(15,"Thomaas Partey","Arsenal",false);
         User registeredUser = userDAO.createUser(newUser);
         Assertions.assertNotEquals(0,registeredUser.getId());
     }
     @Test
     @Order(2)
-    void get_user_by_id_test(){
-        User returnedUser = userDAO.getUserById(1);
-        Assertions.assertEquals("John Doe",returnedUser.getUserName());
+    void create_ticket_test(){
+
+        Ticket newTicket = new Ticket();
+        newTicket.setAmount(700);
+        newTicket.setUserId(4);
+        newTicket.setDescription("Office Supply");
+        Ticket createdTicket = ticketDAO.createNewTicket(newTicket);
+        Assertions.assertNotEquals(0,createdTicket.getId());
     }
+
+
     @Test
     @Order(3)
-    void update_book_test(){
+    void update_ticket_status_test(){
         //When testing update, you should either get the book and use its values or create a completely new book and use those values
-        User user = userDAO.getUserById(1);
-        //You can think of update more of a full replacement/swap and less of specific values being update
-        User userNew = new User(user.getId(),user.getUserName(),"James Matthew Barrie",user.isAdmin());
-        userDAO.updateUser(userNew);
-        User updatedUser = userDAO.getUserById(userNew.getId());
-        Assertions.assertEquals("James Matthew Barrie",updatedUser.getUserName());
+        Ticket ticket = ticketDAO.getTicketById(1);
+        Assertions.assertNotNull(ticket);
+        List<User> user = userDAO.getUserByCreds("Adam Smith", "abcdef");
+        Assertions.assertNotNull(user);
+        Ticket ticket1=new Ticket(1,20000,"office use","PENDING",4);
+
+        Ticket ticket2=ticketDAO.updateTicket(ticket1);
+        Assertions.assertEquals(ticket2,ticket1);
+
+
+
+
     }
-    @Test
-    @Order(4)
-    void delete_book_by_id_test(){
-        boolean result = userDAO.deleteUserById(1);
-        Assertions.assertTrue(result);
-    }
+
 }

@@ -1,9 +1,8 @@
 package repositories;
 
 import dto.StatusUpdate;
-import entities.Status;
+
 import entities.Ticket;
-import entities.User;
 
 import java.util.List;
 

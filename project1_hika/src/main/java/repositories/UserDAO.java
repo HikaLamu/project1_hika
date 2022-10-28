@@ -9,11 +9,9 @@ public interface UserDAO {
 
     User getUserById(int id);
 
-
     List<User> getAllUsers();
 
     List<User> getUserByCreds(String userName,String password);
-
 
     User getUserByUserName(String userName);
 

@@ -1,12 +1,10 @@
 package repositories;
 
 import dto.StatusUpdate;
-import entities.Status;
 import entities.Ticket;
 import entities.User;
 import exceptions.CredentialsDoesNotMacthwithAdmin;
 import exceptions.InvalidUserIdException;
-import org.eclipse.jetty.util.DateCache;
 import util.ConnectionFactory;
 
 import java.sql.*;
@@ -48,7 +46,7 @@ public class TicketDAOPostgres implements TicketDAO {
             String sql = "select * from ticket where id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
-
+            System.out.println("update value"+id);
             ResultSet rs = ps.executeQuery();
             rs.next();
 
@@ -113,7 +111,7 @@ public class TicketDAOPostgres implements TicketDAO {
         }
 
     }
-//checkinh for manager can access pending requests
+//checking for manager can access pending requests
     @Override
 
 public List<Ticket> getAllPendingTicketsByRole(String UserName,String password) {
@@ -137,7 +135,7 @@ public List<Ticket> getAllPendingTicketsByRole(String UserName,String password) 
             return tickets;
         }else{
             try {
-                throw new CredentialsDoesNotMacthwithAdmin("please provide the Admin Credentials");
+                throw new CredentialsDoesNotMacthwithAdmin("Only admin can access all pending tickets");
             } catch (CredentialsDoesNotMacthwithAdmin e) {
                 e.printStackTrace();
             }
@@ -163,14 +161,17 @@ public List<Ticket> getAllPendingTicketsByRole(String UserName,String password) 
             user.setPassword(rs.getString("userpassword"));
             user.setIsAdmin(rs.getBoolean("isadmin"));
             if (user.isAdmin() == true) {
-                UserDAOPostgres daoPostgres = new UserDAOPostgres();
-                User u = daoPostgres.getUserById(stsup.getUserId());
-                if (null != u) {
+                System.out.println(stsup);
+                TicketDAOPostgres ticketDAOPostgres1=new TicketDAOPostgres();
+            Ticket ticket1 = ticketDAOPostgres1.getTicketById(stsup.getUserId());
+                if (null != ticket1) {
                     TicketDAOPostgres ticketDAOPostgres = new TicketDAOPostgres();
-                    StatusUpdate su = ticketDAOPostgres.updateUser(stsup);
+                     ticketDAOPostgres.updateUser(ticket1.getId(),stsup.getStatus());
                     Ticket ticket = new Ticket();
-                    ticket.setUserId(su.getUserId());
-                    ticket.setStatus(su.getStatus());
+                    ticket.setUserId(ticket1.getUserId());
+                    ticket.setStatus(stsup.getStatus());
+                    ticket.setAmount(ticket1.getAmount());
+                    ticket.setId(ticket1.getId());
                     return ticket;
                 } else {
                     try {
@@ -193,19 +194,19 @@ public List<Ticket> getAllPendingTicketsByRole(String UserName,String password) 
         }
         return null;
     }
-    private StatusUpdate updateUser(StatusUpdate user) {
+    private void updateUser(int id,String status) {
         try (Connection connection = ConnectionFactory.getConnection()) {
-            String sql = "update ticket set status = ? where userid = ?";
+            String sql = "update ticket set status = ? where id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setString(1, user.getStatus());
-            preparedStatement.setInt(2, user.getUserId());
+            preparedStatement.setString(1, status);
+            preparedStatement.setInt(2, id);
 
             preparedStatement.executeUpdate();
-            return  user;
+
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+           // return null;
         }
     }
     @Override

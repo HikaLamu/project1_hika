@@ -18,7 +18,8 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        Javalin app = Javalin.create().start(8070);;
+        Javalin app = Javalin.create().start();
+
         UserController userController = new UserController();
 
         TicketController ticketController = new TicketController();
@@ -27,7 +28,7 @@ public class Driver {
 
         //app.get("/users", userController.getAllUsers);
 
-        app.put("/login/{userName}/{password}",userController.loginUser);
+        app.post("/login/{userName}/{password}",userController.loginUser);
 
         //app.get("/users/{id}", userController.getUserByIdHandler);
 
